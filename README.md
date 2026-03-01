@@ -8,6 +8,10 @@ A local-first visual thinking canvas built with **React + TypeScript + Vite + tl
 - Idea node creation via:
   - Toolbar button: **New Idea**
   - Keyboard shortcut: **N**
+  - Connector action: select two nodes then click **Connect Nodes**
+- Editable and movable idea nodes
+- Arrow connections between nodes
+- Quick connector action: select 2 nodes and click **Connect Nodes**
 - Editable and movable idea nodes
 - Arrow connections between nodes
 - Auto-save to LocalStorage with debounce
@@ -47,6 +51,28 @@ Then open the printed local URL (typically http://localhost:5173).
 npm run check
 npm run build
 ```
+
+## Como testar (PT-BR)
+
+Sim — você precisa instalar as dependências antes de testar.
+
+### Passo a passo rápido
+
+```bash
+npm install
+npm run dev
+```
+
+Depois, abra a URL do Vite no navegador (geralmente `http://localhost:5173`).
+
+### Importante
+
+- **Não abra o `index.html` diretamente** (ex.: `file:///.../index.html`).
+- Este projeto usa Vite + módulos ESM + dependências (`react`, `tldraw`), então precisa rodar via servidor de desenvolvimento.
+
+### Erro comum ao abrir só o index
+
+Se abrir o arquivo direto, você verá erros de import/módulo porque o browser não resolve os pacotes de `node_modules` sem o bundler/dev server.
 
 ## Architectural Notes
 
