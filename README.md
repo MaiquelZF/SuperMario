@@ -12,8 +12,6 @@ A local-first visual thinking canvas built with **React + TypeScript + Vite + tl
 - Editable and movable idea nodes
 - Arrow connections between nodes
 - Quick connector action: select 2 nodes and click **Connect Nodes**
-- Editable and movable idea nodes
-- Arrow connections between nodes
 - Auto-save to LocalStorage with debounce
 - Reload restores previous canvas state
 - Explicit domain model (`IdeaNode`, `Connection`, `CanvasDocument`) persisted alongside tldraw snapshot
@@ -41,6 +39,12 @@ npm install
 
 ```bash
 npm run dev
+```
+
+Opcional (diagnóstico rápido de duplicações conhecidas):
+
+```bash
+npm run doctor
 ```
 
 Then open the printed local URL (typically http://localhost:5173).
@@ -73,6 +77,29 @@ Depois, abra a URL do Vite no navegador (geralmente `http://localhost:5173`).
 ### Erro comum ao abrir só o index
 
 Se abrir o arquivo direto, você verá erros de import/módulo porque o browser não resolve os pacotes de `node_modules` sem o bundler/dev server.
+
+
+### Erro: `Identifier "TopToolbar" has already been declared`
+
+Se você vir esse erro no Vite, normalmente é porque seu arquivo local ficou com declaração duplicada após merge/rebase.
+
+Checklist rápido:
+
+1. Abra `src/components/TopToolbar.tsx` e confirme que existe **apenas uma** `interface TopToolbarProps` e **apenas uma** `export function TopToolbar(...)`.
+2. Salve o arquivo e reinicie o servidor (`Ctrl+C` + `npm run dev`).
+3. Rode o diagnóstico local para detectar duplicação no toolbar:
+
+```bash
+npm run doctor
+```
+
+4. Se persistir, limpe instalação local e reinstale:
+
+```bash
+rm -rf node_modules package-lock.json
+npm install
+npm run dev
+```
 
 ## Architectural Notes
 
