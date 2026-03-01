@@ -12,6 +12,8 @@ A local-first visual thinking canvas built with **React + TypeScript + Vite + tl
 - Editable and movable idea nodes
 - Arrow connections between nodes
 - Quick connector action: select 2 nodes and click **Connect Nodes**
+- Editable and movable idea nodes
+- Arrow connections between nodes
 - Auto-save to LocalStorage with debounce
 - Reload restores previous canvas state
 - Explicit domain model (`IdeaNode`, `Connection`, `CanvasDocument`) persisted alongside tldraw snapshot

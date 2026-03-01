@@ -42,6 +42,7 @@ export function CanvasBoard() {
   return (
     <div className="canvas-shell">
       <TopToolbar onCreateIdea={createIdeaNode} onConnectSelected={connectSelectedNodes} />
+      <TopToolbar onCreateIdea={createIdeaNode} />
       <div className="canvas-surface">
         <Tldraw onMount={handleMount} />
       </div>
