@@ -6,10 +6,12 @@ import { STORAGE_KEY } from '../domain/constants'
 import { loadCanvasState } from '../storage/localCanvasStorage'
 import { useCanvasPersistence } from './useCanvasPersistence'
 import { useCreateIdeaNode } from './useCreateIdeaNode'
+import { useConnectSelectedNodes } from './useConnectSelectedNodes'
 
 export function CanvasBoard() {
   const [editor, setEditor] = useState<Editor | null>(null)
   const createIdeaNode = useCreateIdeaNode(editor)
+  const connectSelectedNodes = useConnectSelectedNodes(editor)
 
   useCanvasPersistence(editor)
 
@@ -39,7 +41,7 @@ export function CanvasBoard() {
 
   return (
     <div className="canvas-shell">
-      <TopToolbar onCreateIdea={createIdeaNode} />
+      <TopToolbar onCreateIdea={createIdeaNode} onConnectSelected={connectSelectedNodes} />
       <div className="canvas-surface">
         <Tldraw onMount={handleMount} />
       </div>

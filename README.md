@@ -8,8 +8,10 @@ A local-first visual thinking canvas built with **React + TypeScript + Vite + tl
 - Idea node creation via:
   - Toolbar button: **New Idea**
   - Keyboard shortcut: **N**
+  - Connector action: select two nodes then click **Connect Nodes**
 - Editable and movable idea nodes
 - Arrow connections between nodes
+- Quick connector action: select 2 nodes and click **Connect Nodes**
 - Auto-save to LocalStorage with debounce
 - Reload restores previous canvas state
 - Explicit domain model (`IdeaNode`, `Connection`, `CanvasDocument`) persisted alongside tldraw snapshot
